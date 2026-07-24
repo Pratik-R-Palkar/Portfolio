@@ -50,18 +50,24 @@ yarn-error.log*
 pnpm-debug.log*
 logs/
 
-# Private/Raw Personal Images & Heavy Media Sources
-portrait.jpg
-portrait.jpeg
-public/portrait.jpg
-public/portrait.jpeg
+# ALL IMAGES & MEDIA FILES (STRICT PRIVACY - NO IMAGES COMMITTED TO GIT)
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.svg
+*.bmp
+*.tiff
+*.avif
+*.heic
 *.raw
 *.psd
 *.ai
 *.xcf
-*.heic
 raw_photos/
 private/
+private_images/
 temp_repo/
 tmp/
 temp/
