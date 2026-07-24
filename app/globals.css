@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Poppins', 'Inter', sans-serif;
+  --font-satoshi: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+  --bg-primary: #070707;
+  --gold-primary: #F5C542;
+  --gold-secondary: #CFA42E;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #070707;
+  color: #FFFFFF;
+  font-family: var(--font-inter);
+}
+
+body {
+  background-color: #070707;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(245, 197, 66, 0.3);
+  color: #FFFFFF;
+}
+
+/* Custom Gold Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070707;
+}
+::-webkit-scrollbar-thumb {
+  background: #181818;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5C542;
+}
+
+/* Sticky Navbar 80px */
+.nav-sticky {
+  height: 80px;
+  background: rgba(7, 7, 7, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(245, 197, 66, 0.15);
+}
+
+/* Floating Portrait Keyframes */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+/* Glowing Halo Keyframe */
+@keyframes pulse-halo {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.06); }
+}
+.animate-pulse-halo {
+  animation: pulse-halo 4s ease-in-out infinite;
+}
+
+/* Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F5C542 0%, #CFA42E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.DS_Store
+*.log
+
+# Ignore private/raw image files not intended for public repo
+portrait.jpg
+public/portrait.jpg
+*.raw
+*.psd
+*.ai
+*.xcf
+

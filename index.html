@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratik Rajabhau Palkar | AI & Software Developer</title>
+  <meta name="description" content="Official personal portfolio of Pratik Rajabhau Palkar, AI & Software Developer specializing in voice-first desktop AI assistants, local LLMs, and Python automation.">
+  <meta name="keywords" content="Pratik Rajabhau Palkar, AI Developer, Python Developer, Software Engineer, KAIRO AI, NEXA AI, Local LLM">
+  <meta name="author" content="Pratik Rajabhau Palkar">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Pratik Rajabhau Palkar | AI & Software Developer">
+  <meta property="og:description" content="Building intelligent software, AI assistants, and automation tools that solve real-world problems and create meaningful impact.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pratik-r-palkar.github.io/Portfolio/">
+  <meta property="og:image" content="portrait.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bgPrimary: '#070707',
+            goldPrimary: '#F5C542',
+            goldSecondary: '#CFA42E',
+            cardDark: '#121212',
+            cardDarkHover: '#181818',
+            borderGold: 'rgba(245, 197, 66, 0.3)',
+            borderDark: '#222222',
+            textPrimary: '#FFFFFF',
+            textSecondary: '#A1A1AA',
+          },
+          boxShadow: {
+            goldGlow: '0 0 30px rgba(245, 197, 66, 0.25)',
+            goldGlowSm: '0 0 15px rgba(245, 197, 66, 0.15)',
+            goldGlowLg: '0 0 70px 15px rgba(245, 197, 66, 0.3)',
+            cardShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.9)',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'Poppins', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Luxury Animations & Transitions CSS -->
+  <style>
+    body {
+      background-color: #070707;
+      color: #FFFFFF;
+      font-family: 'Poppins', 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: rgba(245, 197, 66, 0.3);
+      color: #FFFFFF;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070707;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #181818;
+      border-radius: 4px;
+      border: 1px solid rgba(245, 197, 66, 0.2);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F5C542;
+    }
+
+    /* Mouse Glow Torch Effect */
+    #cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(245, 197, 66, 0.08) 0%, rgba(7, 7, 7, 0) 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: transform 0.15s ease-out;
+    }
+
+    .nav-sticky {
+      height: 80px;
+      background: rgba(7, 7, 7, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(245, 197, 66, 0.2);
+    }
+
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+    .animate-float-slow {
+      animation: float-slow 5s ease-in-out infinite;
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 35s linear infinite;
+    }
+
+    @keyframes pulse-halo {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.08); }
+    }
+    .animate-pulse-halo {
+      animation: pulse-halo 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .btn-shimmer {
+      background: linear-gradient(90deg, #F5C542 0%, #FFF5CC 50%, #F5C542 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #F5C542 0%, #FFF5CC 50%, #CFA42E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Scroll Reveal Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.reveal-scale {
+      transform: scale(0.92);
+    }
+
+    .reveal.reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal.reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+    }
+
+    /* Animated Skill Bar */
+    .progress-bar-fill {
+      width: 0%;
+      transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Card Glow Hover Transitions */
+    .luxury-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .luxury-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: #F5C542;
+      box-shadow: 0 15px 35px -5px rgba(245, 197, 66, 0.25);
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pratik Rajabhau Palkar",
+    "jobTitle": "AI & Software Developer",
+    "url": "https://pratik-r-palkar.github.io/Portfolio/",
+    "sameAs": [
+      "https://github.com/Pratik-R-Palkar",
+      "https://linkedin.com/in/pratik-palkar45",
+      "https://x.com/palkarpratik45"
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-bgPrimary text-white relative">
+
+  <!-- Mouse Torch Glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- NAVBAR (80px) -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[80px] flex items-center">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
+      
+      <!-- Logo PP. -->
+      <a href="#hero" class="flex items-center gap-1 group">
+        <span class="font-heading text-2xl font-black tracking-tight text-white group-hover:text-goldPrimary transition-colors duration-300">PP</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-goldPrimary group-hover:scale-125 transition-transform duration-300 shadow-goldGlowSm"></span>
+      </a>
+
+      <!-- Center Menu -->
+      <nav class="hidden md:flex items-center gap-8 relative">
+        <a href="#hero" class="nav-link text-xs font-semibold uppercase tracking-widest text-goldPrimary relative py-1 transition-colors duration-300">Home</a>
+        <a href="#about" class="nav-link text-xs font-semibold uppercase tracking-widest text-textSecondary hover:text-white transition-colors duration-300 relative py-1">About</a>
+        <a href="#projects" class="nav-link text-xs font-semibold uppercase tracking-widest text-textSecondary hover:text-white transition-colors duration-300 relative py-1">Projects</a>
+        <a href="#experience" class="nav-link text-xs font-semibold uppercase tracking-widest text-textSecondary hover:text-white transition-colors duration-300 relative py-1">Experience</a>
+        <a href="#skills" class="nav-link text-xs font-semibold uppercase tracking-widest text-textSecondary hover:text-white transition-colors duration-300 relative py-1">Skills</a>
+        <a href="#contact" class="nav-link text-xs font-semibold uppercase tracking-widest text-textSecondary hover:text-white transition-colors duration-300 relative py-1">Contact</a>
+      </nav>
+
+      <!-- Upper Right Section: GitHub, LinkedIn, and Email Icons -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="https://github.com/Pratik-R-Palkar" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="GitHub Profile" class="w-10 h-10 rounded-xl bg-cardDark border border-borderGold/40 flex items-center justify-center text-goldPrimary hover:border-goldPrimary hover:scale-110 transition-all duration-300 shadow-goldGlowSm group">
+          <svg class="w-5 h-5 text-goldPrimary group-hover:rotate-6 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+
+        <a href="https://linkedin.com/in/pratik-palkar45" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn Profile" class="w-10 h-10 rounded-xl bg-cardDark border border-borderGold/40 flex items-center justify-center text-goldPrimary hover:border-goldPrimary hover:scale-110 transition-all duration-300 shadow-goldGlowSm group">
+          <svg class="w-5 h-5 text-goldPrimary group-hover:-rotate-6 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+
+        <a href="mailto:palkarpratik84@gmail.com" title="Email Me" aria-label="Email Pratik" class="w-10 h-10 rounded-xl bg-cardDark border border-borderGold/40 flex items-center justify-center text-goldPrimary hover:border-goldPrimary hover:scale-110 transition-all duration-300 shadow-goldGlowSm group">
+          <svg class="w-5 h-5 text-goldPrimary group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </a>
+      </div>
+
+      <button id="mobile-toggle" class="md:hidden w-10 h-10 rounded-lg bg-cardDark border border-borderGold/40 flex items-center justify-center text-goldPrimary" aria-label="Toggle Menu">
+        <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden md:hidden fixed top-[80px] left-0 right-0 nav-sticky px-6 py-6 border-b border-borderGold/40">
+      <div class="flex flex-col gap-4">
+        <a href="#hero" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-textSecondary hover:text-goldPrimary transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-textSecondary hover:text-goldPrimary transition-colors">About</a>
+        <a href="#projects" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-textSecondary hover:text-goldPrimary transition-colors">Projects</a>
+        <a href="#experience" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-textSecondary hover:text-goldPrimary transition-colors">Experience</a>
+        <a href="#skills" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-textSecondary hover:text-goldPrimary transition-colors">Skills</a>
+        <a href="#contact" class="mobile-nav-link text-sm font-semibold uppercase tracking-wider text-textSecondary hover:text-goldPrimary transition-colors">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (45% / 55% Split) -->
+  <section id="hero" class="relative min-h-screen pt-32 pb-16 flex items-center justify-center bg-bgPrimary overflow-hidden">
+    <div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-goldPrimary/10 blur-[150px] pointer-events-none animate-pulse-halo"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(rgba(245,197,66,0.1)_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+      
+      <!-- LEFT SIDE (45% -> lg:col-span-5): Circular Portrait Frame -->
+      <div class="lg:col-span-5 flex justify-center relative order-1 reveal reveal-scale">
+        <div class="absolute w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] rounded-full bg-goldPrimary/15 blur-2xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-pulse-halo"></div>
+        <div class="absolute w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] rounded-full border border-dashed border-goldPrimary/35 animate-spin-slow pointer-events-none"></div>
+
+        <div class="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full border-[3px] border-goldPrimary shadow-goldGlowLg animate-float-slow overflow-visible group">
+          <!-- Layer 1: Body & Arms clipped INSIDE circle -->
+          <div class="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
+            <div class="absolute w-[300px] h-[380px] sm:w-[380px] sm:h-[480px] left-0 -top-24 sm:-top-28">
+              <img src="portrait.png" alt="Pratik Rajabhau Palkar" class="w-full h-full object-contain object-bottom filter contrast-110 saturate-110 drop-shadow-[0_10px_25px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-700">
+            </div>
+          </div>
+
+          <!-- Layer 2: Head popping OUT OF TOP of circle -->
+          <div class="absolute inset-0 pointer-events-none" style="clip-path: inset(-200px 0 55% 0);">
+            <div class="absolute w-[300px] h-[380px] sm:w-[380px] sm:h-[480px] left-0 -top-24 sm:-top-28">
+              <img src="portrait.png" alt="Pratik Rajabhau Palkar" class="w-full h-full object-contain object-bottom filter contrast-110 saturate-110 drop-shadow-[0_10px_25px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-700">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE (55% -> lg:col-span-7): Headline & Bio & Pills & Buttons -->
+      <div class="lg:col-span-7 flex flex-col justify-center order-2 text-left reveal reveal-right">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/40 text-xs font-mono text-goldPrimary mb-6 w-fit shadow-goldGlowSm">
+          <span class="w-2 h-2 rounded-full bg-goldPrimary animate-ping"></span>
+          <span>• Hi, I'm</span>
+        </div>
+
+        <h1 class="font-heading text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] mb-4">
+          <span class="text-white">PRATIK</span> <br />
+          <span class="text-gold-gradient">PALKAR</span>
+        </h1>
+
+        <h2 class="font-heading text-lg sm:text-xl font-bold uppercase tracking-widest text-goldPrimary mb-6">
+          AI & SOFTWARE DEVELOPER
+        </h2>
+
+        <p class="text-textSecondary text-base sm:text-lg max-w-xl font-normal leading-relaxed mb-8">
+          I build intelligent software, AI assistants, and automation tools that solve real-world problems and create meaningful impact.
+        </p>
+
+        <!-- SKILL TAGS / PILLS WITH MICRO-ANIMATIONS -->
+        <div class="flex flex-wrap gap-3 mb-10">
+          <div class="px-4 py-2 rounded-full bg-cardDark border border-borderGold/40 hover:border-goldPrimary hover:bg-goldPrimary hover:text-bgPrimary text-textSecondary font-semibold transition-all duration-300 shadow-goldGlowSm flex items-center gap-2 group cursor-default hover:-translate-y-1">
+            <svg class="w-4 h-4 text-goldPrimary group-hover:text-bgPrimary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m14-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            <span class="text-xs font-mono">AI & ML</span>
+          </div>
+          <div class="px-4 py-2 rounded-full bg-cardDark border border-borderGold/40 hover:border-goldPrimary hover:bg-goldPrimary hover:text-bgPrimary text-textSecondary font-semibold transition-all duration-300 shadow-goldGlowSm flex items-center gap-2 group cursor-default hover:-translate-y-1">
+            <svg class="w-4 h-4 text-goldPrimary group-hover:text-bgPrimary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span class="text-xs font-mono">Python</span>
+          </div>
+          <div class="px-4 py-2 rounded-full bg-cardDark border border-borderGold/40 hover:border-goldPrimary hover:bg-goldPrimary hover:text-bgPrimary text-textSecondary font-semibold transition-all duration-300 shadow-goldGlowSm flex items-center gap-2 group cursor-default hover:-translate-y-1">
+            <svg class="w-4 h-4 text-goldPrimary group-hover:text-bgPrimary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            <span class="text-xs font-mono">Automation</span>
+          </div>
+          <div class="px-4 py-2 rounded-full bg-cardDark border border-borderGold/40 hover:border-goldPrimary hover:bg-goldPrimary hover:text-bgPrimary text-textSecondary font-semibold transition-all duration-300 shadow-goldGlowSm flex items-center gap-2 group cursor-default hover:-translate-y-1">
+            <svg class="w-4 h-4 text-goldPrimary group-hover:text-bgPrimary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            <span class="text-xs font-mono">Problem Solver</span>
+          </div>
+        </div>
+
+        <!-- BUTTONS WITH SHIMMER AND HOVER LIFT -->
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="#projects" class="px-8 py-4 rounded-xl bg-goldPrimary text-bgPrimary font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-goldGlow flex items-center gap-3 group hover-lift relative overflow-hidden">
+            <span>VIEW PROJECTS</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+
+          <a href="#contact" class="px-8 py-4 rounded-xl bg-transparent border border-goldPrimary text-goldPrimary font-bold text-xs uppercase tracking-wider hover:bg-goldPrimary hover:text-bgPrimary transition-all duration-300 shadow-goldGlowSm flex items-center gap-3 group hover-lift">
+            <svg class="w-4 h-4 text-goldPrimary group-hover:text-bgPrimary transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>CONTACT ME</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOTTOM STATS SECTION (4 Equal Cards) -->
+  <section class="py-12 bg-bgPrimary border-y border-borderGold/20 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-cardDark p-6 rounded-2xl border border-borderGold/30 luxury-card flex flex-col justify-between group relative overflow-hidden reveal">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+            </div>
+            <span class="font-heading text-3xl font-black text-white group-hover:text-goldPrimary transition-colors duration-300">2+</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-white mb-1 group-hover:text-goldPrimary transition-colors duration-300">Major Projects</h3>
+            <p class="text-xs text-textSecondary font-mono">KAIRO & NEXA AI</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-goldPrimary via-goldSecondary to-transparent"></div>
+        </div>
+
+        <div class="bg-cardDark p-6 rounded-2xl border border-borderGold/30 luxury-card flex flex-col justify-between group relative overflow-hidden reveal">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <span class="font-heading text-3xl font-black text-white group-hover:text-goldPrimary transition-colors duration-300">1</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-white mb-1 group-hover:text-goldPrimary transition-colors duration-300">Internship</h3>
+            <p class="text-xs text-textSecondary font-mono">Mountreach Solutions</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-goldPrimary via-goldSecondary to-transparent"></div>
+        </div>
+
+        <div class="bg-cardDark p-6 rounded-2xl border border-borderGold/30 luxury-card flex flex-col justify-between group relative overflow-hidden reveal">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m14-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <span class="font-heading text-3xl font-black text-white group-hover:text-goldPrimary transition-colors duration-300">10+</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-white mb-1 group-hover:text-goldPrimary transition-colors duration-300">Technologies</h3>
+            <p class="text-xs text-textSecondary font-mono">Python, AI, LLMs</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-goldPrimary via-goldSecondary to-transparent"></div>
+        </div>
+
+        <div class="bg-cardDark p-6 rounded-2xl border border-borderGold/30 luxury-card flex flex-col justify-between group relative overflow-hidden reveal">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+            <span class="font-heading text-3xl font-black text-white group-hover:text-goldPrimary transition-colors duration-300">100%</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm font-bold text-white mb-1 group-hover:text-goldPrimary transition-colors duration-300">Always Learning</h3>
+            <p class="text-xs text-textSecondary font-mono">AI Innovation Focus</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-goldPrimary via-goldSecondary to-transparent"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-28 bg-bgPrimary relative">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/30 text-xs font-mono text-goldPrimary mb-6 reveal">
+        <svg class="w-3.5 h-3.5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+        <span>ABOUT ME</span>
+      </div>
+
+      <h2 class="font-heading text-4xl sm:text-5xl font-black text-white mb-12 tracking-tight reveal">
+        Building Practical <span class="text-gold-gradient">AI Systems</span>.
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <div class="lg:col-span-7 bg-cardDark p-8 sm:p-10 rounded-3xl border border-borderGold/30 flex flex-col justify-between luxury-card reveal reveal-left">
+          <div>
+            <h3 class="font-heading text-2xl font-bold text-white mb-4">Software Engineer & AI Enthusiast</h3>
+            <p class="text-textSecondary text-base sm:text-lg leading-relaxed mb-6">
+              I specialize in engineering low-latency voice AI desktop assistants, local LLM inference engines, and modular Python automation systems.
+            </p>
+            <p class="text-textSecondary text-sm sm:text-base leading-relaxed">
+              My objective is to build clean, purposeful software that seamlessly connects human workflow intent with intelligent backend automation.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-borderDark flex flex-wrap gap-3">
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-bgPrimary border border-borderGold/20 text-goldPrimary hover:scale-105 transition-transform duration-300">Artificial Intelligence</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-bgPrimary border border-borderGold/20 text-goldPrimary hover:scale-105 transition-transform duration-300">Machine Learning</span>
+            <span class="text-xs font-mono px-3 py-1.5 rounded-lg bg-bgPrimary border border-borderGold/20 text-goldPrimary hover:scale-105 transition-transform duration-300">Python Engineering</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-cardDark p-8 sm:p-10 rounded-3xl border border-borderGold/30 flex flex-col justify-between luxury-card reveal reveal-right relative overflow-hidden">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-bgPrimary border border-borderGold/30 flex items-center justify-center text-goldPrimary mb-6">
+              <svg class="w-6 h-6 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <span class="text-xs font-mono uppercase tracking-wider text-goldPrimary block mb-2">ACADEMIC DIPLOMA</span>
+            <h3 class="font-heading text-xl sm:text-2xl font-bold text-white mb-2">Diploma in Electronics & Computer Engineering</h3>
+            <p class="text-textSecondary text-sm font-medium mb-4">T.B. Girwalkar Polytechnic, Ambajogai</p>
+            <p class="text-xs text-textSecondary leading-relaxed">Comprehensive training in computer engineering fundamentals, programming, logic design, and software architecture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="py-28 bg-bgPrimary relative border-t border-borderDark">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/30 text-xs font-mono text-goldPrimary mb-6 reveal">
+        <svg class="w-3.5 h-3.5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <span>FEATURED PROJECTS</span>
+      </div>
+
+      <h2 class="font-heading text-4xl sm:text-5xl font-black text-white mb-14 tracking-tight reveal">
+        Selected <span class="text-gold-gradient">Software Systems</span>.
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <!-- KAIRO -->
+        <div class="bg-cardDark rounded-3xl border border-borderGold/30 luxury-card overflow-hidden flex flex-col justify-between group reveal reveal-left">
+          <div class="relative w-full h-64 sm:h-72 overflow-hidden bg-bgPrimary">
+            <img src="kairo-preview.jpg" alt="KAIRO Preview" class="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-108 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-cardDark via-cardDark/40 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex flex-wrap gap-2">
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bgPrimary/90 border border-borderGold/30 text-goldPrimary shadow-goldGlowSm">Python</span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bgPrimary/90 border border-borderGold/30 text-goldPrimary shadow-goldGlowSm">Rust</span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bgPrimary/90 border border-borderGold/30 text-goldPrimary shadow-goldGlowSm">Ollama</span>
+            </div>
+          </div>
+
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading text-3xl font-black text-white group-hover:text-goldPrimary transition-colors duration-300 mb-1">KAIRO</h3>
+              <p class="text-xs font-mono text-goldSecondary mb-4">Voice-first AI Desktop Assistant</p>
+              <p class="text-textSecondary text-sm leading-relaxed">Next-generation desktop assistant engineered for low-latency voice execution, local system automation, contextual vector memory, and real-time computer vision overlays.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEXA -->
+        <div class="bg-cardDark rounded-3xl border border-borderGold/30 luxury-card overflow-hidden flex flex-col justify-between group reveal reveal-right">
+          <div class="relative w-full h-64 sm:h-72 overflow-hidden bg-bgPrimary">
+            <img src="nexa-preview.jpg" alt="NEXA Preview" class="w-full h-full object-cover object-top filter contrast-105 group-hover:scale-108 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-cardDark via-cardDark/40 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex flex-wrap gap-2">
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bgPrimary/90 border border-borderGold/30 text-goldPrimary shadow-goldGlowSm">Python</span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bgPrimary/90 border border-borderGold/30 text-goldPrimary shadow-goldGlowSm">Ollama</span>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-bgPrimary/90 border border-borderGold/30 text-goldPrimary shadow-goldGlowSm">Hugging Face</span>
+            </div>
+          </div>
+
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading text-3xl font-black text-white group-hover:text-goldPrimary transition-colors duration-300 mb-1">NEXA</h3>
+              <p class="text-xs font-mono text-goldSecondary mb-4">AI Chatbot Powered by Local LLMs</p>
+              <p class="text-textSecondary text-sm leading-relaxed">Modern, privacy-centric AI workspace running entirely offline via Ollama local model quantization with custom long-term vector memory architectures.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE TIMELINE -->
+  <section id="experience" class="py-28 bg-bgPrimary relative border-t border-borderDark">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/30 text-xs font-mono text-goldPrimary mb-6 reveal">
+        <svg class="w-3.5 h-3.5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span>CAREER TIMELINE</span>
+      </div>
+
+      <h2 class="font-heading text-4xl sm:text-5xl font-black text-white mb-14 tracking-tight reveal">
+        Work <span class="text-gold-gradient">Experience</span>.
+      </h2>
+
+      <div class="max-w-4xl mx-auto relative pl-6 sm:pl-8 border-l border-goldPrimary/40 space-y-12 reveal">
+        <div class="relative">
+          <div class="absolute -left-[31px] sm:-left-[39px] top-2 w-4 h-4 rounded-full bg-goldPrimary border-4 border-bgPrimary shadow-goldGlow"></div>
+
+          <div class="bg-cardDark p-8 rounded-3xl border border-borderGold/30 luxury-card">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <svg class="w-4 h-4 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  <h3 class="font-heading text-2xl font-bold text-white">Mountreach Solutions Pvt. Ltd.</h3>
+                </div>
+                <p class="font-mono text-sm text-goldSecondary font-medium">AI & Machine Learning Intern</p>
+              </div>
+
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-bgPrimary border border-borderGold/30 text-xs font-mono text-goldPrimary w-fit shadow-goldGlowSm">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> 3 Months Duration
+              </span>
+            </div>
+
+            <div class="space-y-3 mb-6 text-sm text-textSecondary leading-relaxed">
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-goldPrimary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Constructed data preprocessing and machine learning model training pipelines in Python.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-goldPrimary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Engineered computer vision algorithms and model inference scripts for automation workflows.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-goldPrimary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Evaluated local model quantization performance and multi-threaded desktop execution.</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-borderDark font-mono text-xs text-textSecondary">
+              <span class="px-3 py-1 rounded-md bg-bgPrimary border border-borderGold/20">Python</span>
+              <span class="px-3 py-1 rounded-md bg-bgPrimary border border-borderGold/20">Machine Learning</span>
+              <span class="px-3 py-1 rounded-md bg-bgPrimary border border-borderGold/20">Computer Vision</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION WITH ANIMATED PROGRESS BARS -->
+  <section id="skills" class="py-28 bg-bgPrimary relative border-t border-borderDark">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/30 text-xs font-mono text-goldPrimary mb-6 reveal">
+        <svg class="w-3.5 h-3.5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <span>TECHNICAL PROFICIENCY</span>
+      </div>
+
+      <h2 class="font-heading text-4xl sm:text-5xl font-black text-white mb-14 tracking-tight reveal">
+        Skills & <span class="text-gold-gradient">Progress Bars</span>.
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Programming -->
+        <div class="bg-cardDark p-8 rounded-3xl border border-borderGold/30 luxury-card reveal">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-borderDark">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Programming</h3>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">Python</span><span class="text-goldPrimary font-bold">95%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="95%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">C Language</span><span class="text-goldPrimary font-bold">85%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="85%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">C++</span><span class="text-goldPrimary font-bold">80%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="80%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI -->
+        <div class="bg-cardDark p-8 rounded-3xl border border-borderGold/30 luxury-card reveal">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-borderDark">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m14-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Artificial Intelligence</h3>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">LLMs Inference</span><span class="text-goldPrimary font-bold">90%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="90%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">Ollama Runtime</span><span class="text-goldPrimary font-bold">92%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="92%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">Hugging Face</span><span class="text-goldPrimary font-bold">88%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="88%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="bg-cardDark p-8 rounded-3xl border border-borderGold/30 luxury-card reveal">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-borderDark">
+            <div class="w-10 h-10 rounded-xl bg-bgPrimary border border-borderGold/20 flex items-center justify-center text-goldPrimary">
+              <svg class="w-5 h-5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Developer Tools</h3>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">Git & GitHub</span><span class="text-goldPrimary font-bold">90%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="90%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">VS Code IDE</span><span class="text-goldPrimary font-bold">95%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="95%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono mb-2"><span class="text-white">Linux OS</span><span class="text-goldPrimary font-bold">88%</span></div>
+              <div class="h-2 rounded-full bg-bgPrimary overflow-hidden border border-borderDark"><div data-width="88%" class="progress-bar-fill h-full bg-gradient-to-r from-goldPrimary to-goldSecondary rounded-full"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION (3 Social Cards: LinkedIn, GitHub, Twitter) -->
+  <section id="contact" class="py-28 bg-bgPrimary relative border-t border-borderDark">
+    <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/30 text-xs font-mono text-goldPrimary mb-6 reveal">
+        <svg class="w-3.5 h-3.5 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+        <span>START A CONVERSATION</span>
+      </div>
+
+      <h2 class="font-heading text-4xl sm:text-6xl font-black text-white tracking-tight mb-6 reveal">
+        Let's Build Something <span class="text-gold-gradient">Extraordinary</span>.
+      </h2>
+
+      <p class="text-textSecondary text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed reveal">
+        Open for software engineering roles, technical collaborations, AI system architectures, or open-source discussions.
+      </p>
+
+      <div class="bg-cardDark p-8 sm:p-10 rounded-3xl border border-borderGold/30 luxury-card max-w-2xl mx-auto mb-14 reveal reveal-scale">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4 text-left">
+            <div class="w-12 h-12 rounded-2xl bg-bgPrimary border border-borderGold/30 flex items-center justify-center text-goldPrimary flex-shrink-0">
+              <svg class="w-6 h-6 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-textSecondary uppercase tracking-wider block">Direct Contact Email</span>
+              <span class="font-heading text-lg sm:text-xl font-bold text-white">palkarpratik84@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <button id="copy-email-btn" class="flex-1 sm:flex-initial px-5 py-3 rounded-xl bg-bgPrimary border border-borderGold/30 text-xs font-mono font-bold text-white hover:border-goldPrimary transition-all duration-300 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>
+              <span id="copy-btn-text">Copy</span>
+            </button>
+            <a href="mailto:palkarpratik84@gmail.com" class="flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-goldPrimary text-bgPrimary text-xs font-bold hover:bg-goldSecondary transition-all duration-300 shadow-goldGlow flex items-center justify-center gap-1.5">
+              <span>Send Email</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Social Cards: LinkedIn, GitHub, Twitter -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto reveal">
+        <a href="https://linkedin.com/in/pratik-palkar45" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-cardDark border border-borderGold/30 luxury-card flex items-center justify-between group shadow-goldGlowSm">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-goldPrimary group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span class="font-heading text-sm font-bold text-white group-hover:text-goldPrimary transition-colors duration-300">LinkedIn</span>
+          </div>
+          <svg class="w-4 h-4 text-textSecondary group-hover:text-goldPrimary group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://github.com/Pratik-R-Palkar" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-cardDark border border-borderGold/30 luxury-card flex items-center justify-between group shadow-goldGlowSm">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-goldPrimary group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span class="font-heading text-sm font-bold text-white group-hover:text-goldPrimary transition-colors duration-300">GitHub</span>
+          </div>
+          <svg class="w-4 h-4 text-textSecondary group-hover:text-goldPrimary group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://x.com/palkarpratik45" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-cardDark border border-borderGold/30 luxury-card flex items-center justify-between group shadow-goldGlowSm">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-goldPrimary group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span class="font-heading text-sm font-bold text-white group-hover:text-goldPrimary transition-colors duration-300">Twitter (X)</span>
+          </div>
+          <svg class="w-4 h-4 text-textSecondary group-hover:text-goldPrimary group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-borderDark bg-bgPrimary text-textSecondary">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-center md:text-left">
+        <span class="font-heading font-bold text-white text-base">Pratik Rajabhau Palkar</span>
+        <span class="hidden md:inline-block text-borderDark">•</span>
+        <span class="text-xs font-mono text-goldPrimary">AI & Software Developer</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <span class="text-xs font-mono text-textSecondary">© 2026. All rights reserved.</span>
+        <button id="back-to-top" class="w-9 h-9 rounded-xl bg-cardDark border border-borderGold/30 flex items-center justify-center text-textSecondary hover:text-goldPrimary hover:border-goldPrimary hover:scale-110 transition-all duration-300 shadow-goldGlowSm" aria-label="Back to top">
+          <svg class="w-4 h-4 text-goldPrimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Animation & Interaction Engine -->
+  <script>
+    // Mouse Glow Torch Effect
+    const glow = document.getElementById('cursor-glow');
+    window.addEventListener('mousemove', (e) => {
+      glow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+    });
+
+    // Sticky Navbar & Scroll Observer
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('nav-sticky', 'shadow-lg');
+      } else {
+        navbar.classList.remove('nav-sticky', 'shadow-lg');
+      }
+    });
+
+    // Mobile Drawer Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    mobileToggle.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+      });
+    });
+
+    // Scroll Reveal Intersection Observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+
+          // Trigger Progress Bar Animation if inside skills
+          const fillBars = entry.target.querySelectorAll('.progress-bar-fill');
+          fillBars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
+          });
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Also observe skill section specifically
+    const skillBars = document.querySelectorAll('.progress-bar-fill');
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute('data-width');
+        }
+      });
+    }, { threshold: 0.2 });
+    skillBars.forEach(bar => skillObserver.observe(bar));
+
+    // Copy Email Toast
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyBtnText = document.getElementById('copy-btn-text');
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('palkarpratik84@gmail.com');
+      copyBtnText.textContent = 'Copied!';
+      copyBtnText.classList.add('text-emerald-400');
+      setTimeout(() => {
+        copyBtnText.textContent = 'Copy';
+        copyBtnText.classList.remove('text-emerald-400');
+      }, 2000);
+    });
+
+    // Back to Top Trigger
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
