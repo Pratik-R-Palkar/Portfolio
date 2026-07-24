@@ -1,14 +1,72 @@
+# Dependencies
 node_modules/
+/.pnpm-store
+
+# Next.js & Build Outputs
 .next/
 out/
-.DS_Store
-*.log
+build/
+dist/
+.turbo/
 
-# Ignore private/raw image files not intended for public repo
+# Environment variables & secrets (CRITICAL FOR PRIVACY)
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
+
+# OS metadata & System Junk
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE & Editor Settings
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+
+# Logs & Diagnostics
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+
+# Private/Raw Personal Images & Heavy Media Sources
 portrait.jpg
+portrait.jpeg
 public/portrait.jpg
+public/portrait.jpeg
 *.raw
 *.psd
 *.ai
 *.xcf
+*.heic
+raw_photos/
+private/
+temp_repo/
+tmp/
+temp/
 
+# TypeScript Build Info & Caches
+*.tsbuildinfo
+.cache/
+coverage/
