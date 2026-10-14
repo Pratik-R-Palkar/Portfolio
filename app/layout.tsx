@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CursorGlow from "@/components/CursorGlow";
+import { MotionConfig } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "Pratik Rajabhau Palkar | AI & Software Developer",
@@ -27,14 +28,6 @@ export const metadata: Metadata = {
       "Building intelligent software, AI assistants, and automation systems for the next generation.",
     url: "https://pratik-r-palkar.github.io/Portfolio/",
     siteName: "Pratik Palkar Portfolio",
-    images: [
-      {
-        url: "/portrait.png",
-        width: 800,
-        height: 800,
-        alt: "Pratik Rajabhau Palkar",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -44,9 +37,6 @@ export const metadata: Metadata = {
     description:
       "Building intelligent software, AI assistants, and automation systems for the next generation.",
     creator: "@palkarpratik45",
-  },
-  icons: {
-    icon: "/favicon.ico",
   },
 };
 
@@ -85,7 +75,9 @@ export default function RootLayout({
       </head>
       <body className="bg-bgPrimary text-textPrimary antialiased selection:bg-goldPrimary/30 selection:text-textPrimary">
         <CursorGlow />
-        <SmoothScroll>{children}</SmoothScroll>
+        <MotionConfig reducedMotion="user">
+          <SmoothScroll>{children}</SmoothScroll>
+        </MotionConfig>
       </body>
     </html>
   );

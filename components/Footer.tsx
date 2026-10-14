@@ -5,7 +5,8 @@ import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    window.scrollTo({ top: 0, behavior });
   };
 
   return (

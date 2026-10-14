@@ -6,20 +6,11 @@ import { Github, GitCommit, GitPullRequest, Star, GitFork, ArrowUpRight, Flame, 
 
 const pinnedRepos = [
   {
-    name: "KAIRO",
-    description: "Voice-first AI Desktop Assistant with automation, persistent memory, and vision overlay.",
-    stars: 18,
-    forks: 4,
-    language: "Python",
-    langColor: "#E6B84A",
-    url: "https://github.com/Pratik-R-Palkar/KAIRO",
-  },
-  {
     name: "NEXA",
     description: "Modern AI Chatbot powered by local LLMs (Ollama) with offline inference architecture.",
-    stars: 14,
-    forks: 2,
-    language: "Python",
+    stars: 0,
+    forks: 0,
+    language: "Not reported",
     langColor: "#E6B84A",
     url: "https://github.com/Pratik-R-Palkar/NEXA",
   },
@@ -74,12 +65,12 @@ export default function GithubSection() {
                   </h3>
                 </div>
                 <span className="text-xs font-mono text-textSecondary">
-                  Consistent Code Commits
+                  Decorative mock data
                 </span>
               </div>
 
-              {/* Matrix of Mock Contribution Squares styled in dark & gold */}
-              <div className="grid grid-cols-12 sm:grid-cols-24 gap-1.5 p-4 rounded-2xl bg-surfaceSecondary/50 border border-borderDark/60 overflow-hidden">
+              {/* Decorative pattern only; contribution data is not available here. */}
+              <div role="img" aria-label="Decorative contribution pattern, not based on real GitHub activity" className="grid grid-cols-12 sm:grid-cols-24 gap-1.5 p-4 rounded-2xl bg-surfaceSecondary/50 border border-borderDark/60 overflow-hidden">
                 {Array.from({ length: 120 }).map((_, i) => {
                   // Determine intensity level for gold heatmap styling
                   const rand = (i * 17 + 7) % 10;

@@ -46,7 +46,7 @@ export default function Skills() {
         </div>
 
         <h2 className="font-heading text-4xl sm:text-5xl font-black text-white mb-14 tracking-tight">
-          Skills & <span class="text-gold-gradient">Progress Bars</span>.
+          Skills & <span className="text-gold-gradient">Progress Bars</span>.
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

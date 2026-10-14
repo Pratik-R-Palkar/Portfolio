@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Cpu, Terminal, Bot, Sparkles } from "lucide-react";
 
@@ -43,26 +42,18 @@ export default function Hero() {
             {/* Layer 1: Body & Arms clipped INSIDE circle */}
             <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
               <div className="absolute w-[300px] h-[380px] sm:w-[380px] sm:h-[480px] left-0 -top-24 sm:-top-28">
-                <Image
-                  src="/portrait.png"
-                  alt="Pratik Rajabhau Palkar - AI & Software Developer"
-                  fill
-                  priority
-                  className="object-contain object-bottom filter contrast-110 saturate-110 drop-shadow-[0_10px_25px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-700"
-                />
+                <div role="img" aria-label="Portrait placeholder for Pratik Rajabhau Palkar" className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#211b0b] via-[#0d0d0d] to-[#070707]">
+                  <span aria-hidden="true" className="font-heading text-8xl sm:text-9xl font-black text-goldPrimary/80">PP</span>
+                </div>
               </div>
             </div>
 
             {/* Layer 2: Head popping OUT OF TOP of circle */}
             <div className="absolute inset-0 pointer-events-none" style={{ clipPath: "inset(-200px 0 55% 0)" }}>
               <div className="absolute w-[300px] h-[380px] sm:w-[380px] sm:h-[480px] left-0 -top-24 sm:-top-28">
-                <Image
-                  src="/portrait.png"
-                  alt="Pratik Rajabhau Palkar - AI & Software Developer"
-                  fill
-                  priority
-                  className="object-contain object-bottom filter contrast-110 saturate-110 drop-shadow-[0_10px_25px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-700"
-                />
+                <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#211b0b] via-[#0d0d0d] to-[#070707]">
+                  <span className="font-heading text-8xl sm:text-9xl font-black text-goldPrimary/80">PP</span>
+                </div>
               </div>
             </div>
 
@@ -79,7 +70,7 @@ export default function Hero() {
           {/* Small Text Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderGold/40 text-xs font-mono text-goldPrimary mb-6 w-fit shadow-goldGlowSm">
             <span className="w-2 h-2 rounded-full bg-goldPrimary animate-ping" />
-            <span>• Hi, I'm</span>
+            <span>• Hi, I&apos;m</span>
           </div>
 
           {/* Large Heading: PRATIK (White) PALKAR (Gold) */}

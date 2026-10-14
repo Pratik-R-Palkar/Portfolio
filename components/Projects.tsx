@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Layers } from "lucide-react";
+import { ArrowUpRight, Github, Layers } from "lucide-react";
 
 const projectsList = [
   {
@@ -12,7 +11,8 @@ const projectsList = [
     description:
       "Next-generation desktop assistant engineered for low-latency voice execution, local system automation, contextual vector memory, and real-time computer vision overlays.",
     tech: ["Python", "Rust", "Ollama", "OpenCV", "SpeechRecognition"],
-    image: "/kairo-preview.jpg",
+    accent: "from-amber-500/20 via-[#17120a] to-[#070707]",
+    sourceUrl: undefined,
   },
   {
     title: "NEXA",
@@ -20,7 +20,8 @@ const projectsList = [
     description:
       "Modern, privacy-centric AI workspace running entirely offline via Ollama local model quantization with custom long-term vector memory architectures.",
     tech: ["Python", "Ollama", "Hugging Face", "Streamlit"],
-    image: "/nexa-preview.jpg",
+    accent: "from-yellow-700/20 via-[#17120a] to-[#070707]",
+    sourceUrl: "https://github.com/Pratik-R-Palkar/NEXA",
   },
 ];
 
@@ -52,13 +53,13 @@ export default function Projects() {
             >
               {/* Image Preview Container */}
               <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-bgPrimary">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} Preview`}
-                  fill
-                  className="object-cover object-top filter contrast-105 group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-cardDark via-cardDark/40 to-transparent" />
+                <div role="img" aria-label={`${project.title} project preview placeholder`} className={`absolute inset-0 bg-gradient-to-br ${project.accent}`}>
+                  <div aria-hidden="true" className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="font-heading text-5xl sm:text-6xl font-black tracking-widest text-goldPrimary/80">{project.title}</span>
+                    <span className="mt-3 text-xs font-mono uppercase tracking-widest text-textSecondary">Preview unavailable</span>
+                  </div>
+                </div>
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-cardDark via-cardDark/20 to-transparent" />
 
                 {/* Tech Pills */}
                 <div className="absolute bottom-4 left-6 flex flex-wrap gap-2">
@@ -88,6 +89,19 @@ export default function Projects() {
                     {project.description}
                   </p>
                 </div>
+                {project.sourceUrl && (
+                  <a
+                    href={project.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} source on GitHub`}
+                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-lg border border-borderGold/30 px-4 py-2 text-xs font-semibold text-goldPrimary transition-colors hover:border-goldPrimary focus-visible:outline-offset-4"
+                  >
+                    <Github className="h-4 w-4" aria-hidden="true" />
+                    <span>Source</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

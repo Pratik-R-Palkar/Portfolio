@@ -6,12 +6,24 @@ import { Mail, Linkedin, Github, Twitter, Copy, Check, ArrowUpRight, MessageSqua
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
   const email = "palkarpratik84@gmail.com";
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    setCopied(false);
+    setCopyError(false);
+
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+    } catch {
+      setCopyError(true);
+    }
+
+    setTimeout(() => {
+      setCopied(false);
+      setCopyError(false);
+    }, 2000);
   };
 
   return (
@@ -25,7 +37,7 @@ export default function Contact() {
         </div>
 
         <h2 className="font-heading text-4xl sm:text-6xl font-black text-white tracking-tight mb-6">
-          Let's Build Something <span className="text-gold-gradient">Extraordinary</span>.
+          Let&apos;s Build Something <span className="text-gold-gradient">Extraordinary</span>.
         </h2>
 
         <p className="text-textSecondary text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
@@ -52,10 +64,12 @@ export default function Contact() {
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={handleCopy}
+                type="button"
+                aria-label="Copy contact email"
                 className="flex-1 sm:flex-initial px-5 py-3 rounded-xl bg-bgPrimary border border-borderGold/30 text-xs font-mono font-bold text-white hover:border-goldPrimary transition-all flex items-center justify-center gap-2"
               >
-                {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-goldPrimary" />}
-                <span className={copied ? "text-emerald-400" : ""}>{copied ? "Copied!" : "Copy"}</span>
+                {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className={`w-4 h-4 ${copyError ? "text-red-400" : "text-goldPrimary"}`} />}
+                <span role="status" aria-live="polite" className={copied ? "text-emerald-400" : copyError ? "text-red-400" : ""}>{copied ? "Copied!" : copyError ? "Copy failed" : "Copy"}</span>
               </button>
 
               <a

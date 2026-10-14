@@ -42,6 +42,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[80px] flex items-center ${
@@ -59,7 +70,7 @@ export default function Navbar() {
         </a>
 
         {/* Center Menu */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => {
             const isActive = activeSection === link.name;
             return (
@@ -121,7 +132,9 @@ export default function Navbar() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden w-10 h-10 rounded-lg bg-cardDark border border-borderGold/40 flex items-center justify-center text-goldPrimary"
-          aria-label="Toggle Navigation"
+          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -135,9 +148,10 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden fixed top-[80px] left-0 right-0 nav-sticky px-6 py-6 border-b border-borderGold/40"
+            id="mobile-navigation"
+            className="md:hidden fixed top-[80px] left-0 right-0 max-h-[calc(100vh-80px)] max-h-[calc(100dvh-80px)] overflow-y-auto bg-[#070707]/95 backdrop-blur-2xl px-6 py-6 border-b border-borderGold/40"
           >
-            <div className="flex flex-col gap-4">
+            <nav aria-label="Mobile navigation" className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -149,17 +163,17 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex items-center gap-4 pt-4 border-t border-borderDark">
-                <a href="https://github.com/Pratik-R-Palkar" target="_blank" rel="noopener noreferrer" className="text-goldPrimary hover:scale-110 transition-transform">
+                <a href="https://github.com/Pratik-R-Palkar" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="text-goldPrimary hover:scale-110 transition-transform">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href="https://linkedin.com/in/pratik-palkar45" target="_blank" rel="noopener noreferrer" className="text-goldPrimary hover:scale-110 transition-transform">
+                <a href="https://linkedin.com/in/pratik-palkar45" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="text-goldPrimary hover:scale-110 transition-transform">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="mailto:palkarpratik84@gmail.com" className="text-goldPrimary hover:scale-110 transition-transform">
+                <a href="mailto:palkarpratik84@gmail.com" aria-label="Email Pratik" className="text-goldPrimary hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
